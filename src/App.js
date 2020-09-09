@@ -8,18 +8,26 @@ function App() {
   const [rows, setRows] = useState([]);
 
   useEffect(() => {
-    getValue().then(value => setItems(value));
+    const prevValue = JSON.parse(localStorage.getItem('data'));
+    if (prevValue) {
+      setItems(prevValue)
+    } else {
+      getValue().then(value => setItems(value.data));
+    }
   }, [])
 
   useEffect(() => {
-    if (typeof items.data !== 'undefined') {
-      setNames(Object.keys(items.data[0]));
-      setRows(items.data);
+    if (items.length > 0) {
+      setNames(Object.keys(items[0]));
+      setRows(items);
     }
   }, [items, setNames, setRows])
 
-  const deletColumn = () => {
-    return names.length < 5 ? getValue().then(value => setItems(value)) : null;
+  const resetColumns = () => {
+    if (names.length < 5) {
+      getValue().then(value => setItems(value.data))
+      localStorage.clear();
+    }
   }
 
   const showContent = (text, title) => {
@@ -43,12 +51,13 @@ function App() {
   const deleteColumn = (e) => {
     const value = e.target.name;
     const newNames = names.filter(item => item !== value);
-    const arr = rows.map((item) => {
+    const newData = rows.map((item) => {
       delete item[value];
       return item;
     })
     setNames(newNames);
-    setRows(arr);
+    setRows(newData);
+    localStorage.setItem('data', JSON.stringify(newData));
   }
 
   return (
@@ -57,7 +66,7 @@ function App() {
         <h1 className="header__title">Pantone colors</h1>
         <button 
           className={names.length === 5 ? 'header__button' : 'header__button header__button-active'} 
-          onClick={deletColumn}
+          onClick={resetColumns}
         >
           <span>
             ↺
