@@ -1,0 +1,159 @@
+@font-face {
+  font-family: SegoeUI;
+  src:
+      local("Segoe UI"),
+      url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/normal/latest.woff2) format("woff2"),
+      url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/normal/latest.woff) format("woff"),
+      url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/normal/latest.ttf) format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: SegoeUI;
+  src:
+      local("Segoe UI Bold"),
+      url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/bold/latest.woff2) format("woff2"),
+      url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/bold/latest.woff) format("woff"),
+      url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/bold/latest.ttf) format("truetype");
+  font-weight: 600;
+}
+
+#root {
+  display: flex;
+  background-color: hsl(203, 46%, 86%);
+  height: 100vh;
+  width: 100%;
+}
+
+.wrapper {
+  height: 734px;
+  width: 640px;
+  font-family: 'Segoe UI','Arial', 'sans-serif';
+  font-style: normal;
+  margin: auto;
+  background-color: #fff;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  height: 66px;
+}
+
+.header__button {
+  display: flex;
+  align-items: center;
+  margin-right: 24px;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 21px;
+  color: #888888;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: initial;
+}
+
+.header__button span {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  font-size: 24px;
+  font-weight: lighter;
+  padding-bottom: 5px;
+  transform: rotate(-90deg);
+}
+
+.header__button-active {
+  color: #0075FF;
+  cursor: pointer;
+}
+
+.header__title {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 32px;
+  margin-left: 24px;
+}
+
+.table__header-checkbox {
+  cursor: pointer;
+}
+
+.table__item-hex {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  border: solid 1px transparent;
+}
+
+.table__header-row {
+  height: 31px;
+  border-top: 1px solid #C4C4C4;
+  border-bottom: 1px solid #C4C4C4;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.05em;
+  color: #000000;
+  text-transform: uppercase;
+}
+
+.table__body-row,
+.table__header-row {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.table__column {
+  display: flex;
+  align-items: center;
+  height: inherit;
+  flex-grow: 1;
+  max-width: fit-content;
+}
+
+.table__column-id {
+  min-width: 37px;
+  justify-content: flex-end;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.table__column-name {
+  min-width: 171px;
+  justify-content: flex-start;
+  padding-left: 7px;
+  padding-right: 7px;
+}
+
+.table__column-year {
+  min-width: 46px;
+  justify-content: flex-end;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.table__column-color {
+  min-width: 113px;
+  justify-content: flex-start;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.table__column-pantone_value {
+  min-width: 161px;
+  justify-content: flex-start;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.table__body-row {
+  width: 640px;
+  height: 52.5px;
+}

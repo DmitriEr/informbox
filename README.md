@@ -1,2 +1,1 @@
-# informbox
-Task for informbox
+This project (test word) was created for company informbox 
